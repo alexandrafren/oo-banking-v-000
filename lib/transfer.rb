@@ -31,4 +31,6 @@ class Transfer
       @receiver.withdraw(@amount)
       @status = "reversed"
     end
+  end
+
 end
