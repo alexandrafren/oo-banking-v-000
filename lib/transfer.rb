@@ -12,16 +12,14 @@ class Transfer
   end
 
   def execute_transaction
-    if valid?
-      if @status = "pending"
+    if @status == "pending"
+      if valid?
         @sender.withdraw(@amount)
         @receiver.deposit(@amount)
         @status = "complete"
         "Your transaction is complete."
-      else
-        "Your transaction is complete."
       end
-    else
+      else
         @status = "rejected"
         return "Transaction rejected. Please check your account balance."
       end
